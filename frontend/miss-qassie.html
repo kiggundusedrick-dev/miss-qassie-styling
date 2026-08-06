@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miss Qassie — Fashion &amp; Styling</title>
+  <meta name="description" content="Miss Qassie — Luxury fashion and personal styling. Wardrobe curation, editorial direction, and bespoke styling experiences in Kampala and worldwide." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="miss-quassie-brand-framework.css">
+
+</head>
+
+<body>
+
+  <!-- ==========================================
+        LUXURY PRELOADER
+========================================== -->
+
+<div class="mq-loader" id="mqLoader">
+
+  <div class="loader-content">
+
+      <span class="loader-small">
+          Luxury Fashion
+      </span>
+
+      <h1 class="loader-logo">
+
+          MISS
+          <span>QASSIE</span>
+
+      </h1>
+
+      <div class="loader-line">
+          <span></span>
+      </div>
+
+  </div>
+
+</div>
+
+  <!-- ░░░ ANNOUNCEMENT BAR ░░░ -->
+  <div class="announce-bar" role="banner" aria-label="Announcement">
+    <p>New Season Arrivals — Limited Pieces</p>
+    <span class="announce-dot" aria-hidden="true"></span>
+    <p>Personal Styling Consultations Now Open</p>
+    <span class="announce-dot" aria-hidden="true"></span>
+    <p>Worldwide Delivery Available</p>
+  </div>
+
+  <!-- ░░░ NAVIGATION ░░░ -->
+  <header>
+    <nav class="nav" id="mainNav" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo" aria-label="Miss Quassie Home">
+
+        <img
+            src="images/logo.png"
+            alt="Miss Quassie Logo"
+            class="nav-logo-image"
+        >
+    
+        <div class="nav-logo-text">
+    
+            <span class="logo-small">
+                MISS
+            </span>
+    
+            <span class="logo-large">
+                QASSIE
+            </span>
+    
+        </div>
+    
+    </a>
+    <ul class="nav-links" role="list">
+
+      <a href="#home">Home</a>
+  
+      <li><a href="#collections">Collections</a></li>
+  
+      <li><a href="#lookbook">Lookbook</a></li>
+  
+      <li><a href="#styling">Services</a></li>
+  
+      <li><a href="#about">About</a></li>
+  
+      <li><a href="#contact">Contact</a></li>
+  
+  </ul>
+
+      <a href="#contact" class="nav-cta" aria-label="Book a styling session">Book Styling</a>
+
+      <button class="nav-hamburger" id="hamburger" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile overlay + menu -->
+  <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+  <nav class="nav-mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
+    <a href="#collections">Collections</a>
+    <a href="#editorial">Editorial</a>
+    <a href="#styling">Styling</a>
+    <a href="#lookbook">Lookbook</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+
+    <a href="admin-login.html" class="admin-mobile-link">
+      Studio Login
+  </a>
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <main>
+    <section class="hero" id="home" aria-label="Welcome to Miss Quassie">
+
+      <!-- Left: Text -->
+      <div class="hero-left">
+        <div class="hero-eyebrow" aria-hidden="true">
+          <div class="hero-eyebrow-line"></div>
+          <span class="hero-eyebrow-text">Fashion &amp; Personal Styling · Est. 2024</span>
+        </div>
+
+        <h1 class="hero-title">Dressed<br>to Be<br><em>Remembered</em></h1>
+
+        <p class="hero-tagline">
+          Curated looks. Confident women. Miss Qassie blends high-fashion editorial vision
+          with personalised styling — because every woman deserves to feel extraordinary.
+        </p>
+
+        <div class="hero-divider" aria-hidden="true"></div>
+
+        <div class="hero-actions">
+          <a href="#collections" class="btn-primary">Explore Collections</a>
+          <a href="#contact" class="btn-outline">Book Styling</a>
+        </div>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="hero-right" aria-label="Miss Qassie campaign image">
+        <img
+          src="images/miss-qassie-main.jpg"
+          alt="Miss Qassie — Fashion &amp; Styling"
+          class="hero-image"
+          loading="eager"
+          fetchpriority="high"
+          onerror="this.style.background='linear-gradient(135deg,#1a1a1a 0%,#2a2015 100%)';this.removeAttribute('src')"
+        />
+        <div class="hero-namecard" aria-hidden="true">
+          <span class="hero-namecard-title">MQ</span>
+        </div>
+        <div class="hero-corner"    aria-hidden="true"></div>
+        <div class="hero-corner-bl" aria-hidden="true"></div>
+        <aside class="hero-stats" aria-label="Brand highlights">
+          <div class="hero-stat">
+            <span class="hero-stat-num" id="clientsCount">500+</span>
+            <span class="hero-stat-label">Clients Styled</span>
+            <div class="hero-stat-line" aria-hidden="true"></div>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-num" id="experienceCount">8+</span>
+            <span class="hero-stat-label">Years Experience</span>
+            <div class="hero-stat-line" aria-hidden="true"></div>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-num" id="collectionsCount">3</span>
+            <span class="hero-stat-label">Collections</span>
+          </div>
+        </aside>
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">
+        <div class="hero-scroll-dot"></div>
+        <span class="hero-scroll-text">Scroll</span>
+      </div>
+
+      <nav class="hero-social" aria-label="Social media links">
+        <a href="https://www.instagram.com/missqassie" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+        <a href="https://www.tiktok.com/@missqassie" target="_blank" rel="noopener" aria-label="TikTok">TikTok</a>
+        <a href="https://www.youtube.com/@missqassie" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a>
+      </nav>
+
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         COLLECTIONS
+    ══════════════════════════════════════════ -->
+    <section class="mq-collections-section reveal" id="collections">
+      <div class="mq-section-centered">
+        <span class="mq-subheading">Luxury Collections</span>
+        <h2 class="mq-headline mq-mt-sm">Signature <span class="mq-text-gold">Collections</span></h2>
+        <div class="mq-divider mq-divider-center"></div>
+        <p class="mq-body mq-max-720">Explore timeless fashion collections inspired by elegance, confidence, and modern femininity.</p>
+      </div>
+      <div class="mq-collections-grid mq-max-1200" style="margin-top:60px">
+        <div class="mq-collection-card reveal delay-1">
+          <img src="images/collection1.jpeg" alt="Evening Luxe Collection" loading="lazy">
+          <div class="mq-collection-overlay"><h3>Evening Luxe</h3>
+          
+            <span class="mq-collection-link">
+              Explore Collection →
+          </span>
+
+          </div>
+        </div>
+        <div class="mq-collection-card reveal delay-2">
+          <img src="images/collection2.png" alt="Modern Royalty Collection" loading="lazy">
+          <div class="mq-collection-overlay"><h3>Modern Royalty</h3>
+          
+            <span class="mq-collection-link">
+              Explore Collection →
+          </span>
+
+          </div>
+        </div>
+        <div class="mq-collection-card reveal delay-3">
+          <img src="images/collection3.jpeg" alt="Soft Glamour Collection" loading="lazy">
+          <div class="mq-collection-overlay"><h3>Soft Glamour</h3>
+          
+            <span class="mq-collection-link">
+              Explore Collection →
+          </span>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+     EDITORIAL
+====================================================== -->
+
+<section class="mq-editorial-section" id="editorial">
+
+  <div class="mq-editorial-grid">
+
+      <!-- Left -->
+
+      <div class="mq-editorial-content">
+
+        <div class="mq-editorial-heading">
+
+          <div class="mq-heading-line"></div>
+      
+          <span class="mq-subheading">
+              Editorial Vision
+          </span>
+      
+      </div>
+      
+      <h2 class="mq-editorial-title">
+      
+          Fashion Beyond
+          <span>Trends</span>
+      
+      </h2>
+      
+      <div class="mq-editorial-divider"></div>
+
+          <p class="mq-editorial-text">
+
+              Miss Qassie creates luxury fashion narratives through
+              modern editorial direction, premium styling and timeless
+              visual storytelling.
+
+          </p>
+
+          <a href="#lookbook" class="mq-editorial-btn">
+
+              Explore Editorial →
+
+          </a>
+
+      </div>
+
+      <!-- Right -->
+
+      <div class="mq-editorial-image">
+
+          <img
+              src="images/editorial-fashion.jpg"
+              alt="Editorial Vision"
+          >
+
+          <div class="mq-editorial-logo">
+
+              MQ
+
+          </div>
+
+      </div>
+
+  </div>
+
+</section>
+    
+    <!-- ══════════════════════════════════════════
+         STYLING
+    ══════════════════════════════════════════ -->
+    <section class="mq-styling-section reveal" id="styling">
+      <div class="mq-services-grid">
+
+        <div class="mq-service-card reveal delay-1">
+            <div class="mq-service-number">01</div>
+            <h3 class="mq-service-title">Wardrobe Curation</h3>
+            <p class="mq-body">
+                Discover outfits tailored to your personality,
+                lifestyle and elegance.
+            </p>
+        </div>
+    
+        <div class="mq-service-card reveal delay-2">
+            <div class="mq-service-number">02</div>
+            <h3 class="mq-service-title">Luxury Events</h3>
+            <p class="mq-body">
+                Exclusive styling for weddings,
+                galas, dinners and premium occasions.
+            </p>
+        </div>
+    
+        <div class="mq-service-card reveal delay-3">
+            <div class="mq-service-number">03</div>
+            <h3 class="mq-service-title">Image Consultancy</h3>
+            <p class="mq-body">
+                Build confidence through refined fashion,
+                personal branding and signature style.
+            </p>
+        </div>
+    
+        <div class="mq-service-card reveal delay-4">
+            <div class="mq-service-number">04</div>
+            <h3 class="mq-service-title">Creative Direction</h3>
+            <p class="mq-body">
+                Bringing fashion campaigns,
+                editorials and luxury concepts to life.
+            </p>
+        </div>
+    
+        <div class="mq-service-card reveal delay-5">
+            <div class="mq-service-number">05</div>
+            <h3 class="mq-service-title">Content Creation</h3>
+            <p class="mq-body">
+                Producing luxury fashion content,
+                campaigns and social storytelling.
+            </p>
+        </div>
+    
+        <div class="mq-service-card reveal delay-6">
+            <div class="mq-service-number">06</div>
+            <h3 class="mq-service-title">Personal Styling</h3>
+            <p class="mq-body">
+                One-on-one styling experiences designed
+                around confidence and elegance.
+            </p>
+        </div>
+    
+    </div>
+    </section>
+
+   <!-- ======================================================
+     MEET THE FOUNDER
+====================================================== -->
+
+<section class="founder-section reveal" id="about">
+
+  <div class="founder-container">
+
+      <!-- LEFT SIDE -->
+
+      <div class="founder-left">
+
+          <div class="founder-heading">
+
+              <div class="founder-line"></div>
+
+              <span class="founder-label">
+
+                  Meet the Founder
+
+              </span>
+
+          </div>
+
+          <h2 class="founder-title">
+
+              MISS
+              <span>QASSIE</span>
+
+          </h2>
+
+          <div class="founder-divider"></div>
+
+          <div class="founder-role">
+
+              <span class="founder-icon">✦</span>
+
+              <div>
+
+                  <h3>Creative Director</h3>
+
+                  <p>
+                      Leading every creative vision with timeless elegance,
+                      editorial excellence and luxury aesthetics.
+                  </p>
+
+              </div>
+
+          </div>
+
+          <div class="founder-role">
+
+              <span class="founder-icon">◇</span>
+
+              <div>
+
+                  <h3>Image Consultant & Personal Stylist</h3>
+
+                  <p>
+                      Helping women build confidence through personalised
+                      styling and wardrobe transformation.
+                  </p>
+
+              </div>
+
+          </div>
+
+          <div class="founder-role">
+
+              <span class="founder-icon">⬡</span>
+
+              <div>
+
+                  <h3>Content Creator</h3>
+
+                  <p>
+                      Creating fashion stories that inspire confidence,
+                      elegance and authentic personal branding.
+                  </p>
+
+              </div>
+
+          </div>
+
+          <div class="founder-bio">
+
+              <p>
+
+                  Miss Qassie believes fashion is more than clothing.
+                  Every wardrobe is intentionally curated to reflect
+                  confidence, elegance and individuality.
+
+                  Her mission is to help every client look exceptional
+                  while feeling completely themselves.
+
+              </p>
+
+          </div>
+
+          <a href="#contact" class="founder-btn">
+
+              Book a Styling Consultation →
+
+          </a>
+
+      </div>
+
+      <!-- RIGHT SIDE -->
+
+      <div class="founder-right">
+
+          <img
+
+              src="images/miss-qassie-about-fashion.jpeg"
+
+              alt="Miss Qassie"
+
+          >
+
+          <div class="creative-card">
+
+              <span>
+
+                  Creative Direction
+
+              </span>
+
+              <h3>
+
+                  Fashion With Purpose
+
+              </h3>
+
+              <p>
+
+                  Every silhouette tells a story.
+
+                  Every detail creates emotion.
+
+                  My vision is to craft refined styling
+                  experiences that celebrate confidence,
+                  individuality and timeless luxury.
+
+              </p>
+
+
+
+          </div>
+
+      </div>
+
+  </div>
+
+</section>
+
+ <!-- ======================================================
+     LOOKBOOK
+====================================================== -->
+
+<section class="lookbook-section reveal" id="lookbook">
+
+  <div class="lookbook-header">
+
+      <span class="mq-subheading">
+          Editorial Gallery
+      </span>
+
+      <h2 class="mq-headline">
+
+          Luxury
+          <span class="mq-text-gold">
+
+              Lookbook
+
+          </span>
+
+      </h2>
+
+      <div class="mq-divider"></div>
+
+      <p class="mq-body mq-max-720">
+
+          A curated collection of timeless fashion,
+          luxury styling and editorial storytelling.
+
+      </p>
+
+  </div>
+
+  <div class="lookbook-editorial">
+
+      <!-- Image 1 -->
+
+      <div class="editorial-card one reveal delay-1">
+
+          <img src="images/look1.png" alt="Lookbook">
+
+
+          <div class="editorial-overlay">
+
+              <span>01</span>
+
+              <h3>Editorial Elegance</h3>
+
+              <p>Spring / Summer 2026</p>
+
+              <a href="#">View Collection →</a>
+
+          </div>
+
+      </div>
+
+      <!-- Image 2 -->
+
+      <div class="editorial-card two reveal delay-2">
+
+          <img src="images/look2.png" alt="Lookbook">
+
+          <div class="editorial-overlay">
+
+              <span>02</span>
+
+              <h3>Luxury Moments</h3>
+
+              <p>Signature Styling</p>
+
+              <a href="#">View Collection →</a>
+
+          </div>
+
+      </div>
+
+      <!-- Image 3 -->
+
+      <div class="editorial-card three">
+
+          <img src="images/look3.jpeg" alt="Lookbook">
+
+          <div class="editorial-overlay reveal delay-3">
+
+              <span>03</span>
+
+              <h3>Modern Royalty</h3>
+
+              <p>Editorial Campaign</p>
+
+              <a href="#">View Collection →</a>
+
+          </div>
+
+      </div>
+
+      <!-- Image 4 -->
+
+      <div class="editorial-card four reveal delay-4">
+
+          <img src="images/look4.jpeg" alt="Lookbook">
+
+          <div class="editorial-overlay">
+
+              <span>04</span>
+
+              <h3>Timeless Beauty</h3>
+
+              <p>Luxury Collection</p>
+
+              <a href="#">View Collection →</a>
+
+          </div>
+
+      </div>
+
+      <!-- Image 5 -->
+
+      <div class="editorial-card five reveal delay-5">
+
+          <img src="images/look5.png" alt="Lookbook">
+
+          <div class="editorial-overlay">
+
+              <span>05</span>
+
+              <h3>Elegant Confidence</h3>
+
+              <p>Fashion Story</p>
+
+              <a href="#">View Collection →</a>
+
+          </div>
+
+      </div>
+
+      <!-- Image 6 -->
+
+      <div class="editorial-card six reveal delay-6">
+
+          <img src="images/look6.png" alt="Lookbook">
+
+          <div class="editorial-overlay">
+
+              <span>06</span>
+
+              <h3>Miss Qassie</h3>
+
+              <p>Luxury Editorial</p>
+
+              <a href="#">View Collection →</a>
+
+          </div>
+
+      </div>
+
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════
+        LUXURY TRANSITION
+══════════════════════════════════════════ -->
+<section class="section-transition" aria-hidden="true">
+
+  <div class="transition-line"></div>
+
+  <div class="transition-logo">
+      <span>MISS QUASSIE</span>
+  </div>
+
+  <div class="transition-line"></div>
+
+</section>
+    
+    <!-- ══════════════════════════════════════════
+         CONTACT & CONNECT
+    ══════════════════════════════════════════ -->
+    <section class="contact-section" id="contact" aria-labelledby="contact-heading">
+      <div class="contact-rule contact-rule-top"    aria-hidden="true"></div>
+      <div class="contact-rule contact-rule-bottom" aria-hidden="true"></div>
+      <div class="contact-watermark"                aria-hidden="true">MQ</div>
+      <div class="dot-cluster top-right"            aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="dot-cluster bottom-left"          aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="contact-inner">
+
+        <!-- Header -->
+        <header class="contact-header reveal" id="contact-heading">
+          <div class="contact-eyebrow" aria-hidden="true">
+            <div class="eyebrow-line"></div>
+            <span class="eyebrow-text">Get in Touch</span>
+            <div class="eyebrow-line"></div>
+          </div>
+          <h2 class="contact-headline">
+            Let's Create<br><em>Your Signature Style</em>
+        </h2>
+          <p class="contact-sub">Book a styling consultation, collaborate with us, or simply say hello. We'd love to hear your story.</p>
+          <div class="contact-divider" aria-hidden="true"></div>
+        </header>
+
+        <!-- Platform Cards -->
+        <div class="platform-grid" role="list" aria-label="Social media and contact links">
+
+          <!-- WhatsApp -->
+          <a class="platform-card card-whatsapp reveal delay-1" href="https://wa.me/256756390806" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Chat with Miss Quassie on WhatsApp" style="transition-delay:.1s">
+            <div class="shimmer" aria-hidden="true"></div>
+            <div class="platform-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            </div>
+            <span class="platform-name">WhatsApp</span>
+            <span class="platform-handle">+256 756 390 806</span>
+            <p class="platform-desc">Direct message for bookings, enquiries, and styling consultations.</p>
+            <div class="platform-cta"><span>Open Chat</span><span class="platform-cta-arrow">→</span></div>
+          </a>
+
+          <!-- YouTube -->
+          <a class="platform-card card-youtube reveal delay-2" href="https://www.youtube.com/@missqassie" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Watch Miss Quassie on YouTube" style="transition-delay:.22s">
+            <div class="shimmer" aria-hidden="true"></div>
+            <div class="platform-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </div>
+            <span class="platform-name">YouTube</span>
+            <span class="platform-handle">Miss Qassie</span>
+            <p class="platform-desc">Behind-the-scenes, styling tutorials, and fashion editorial content.</p>
+            <div class="platform-cta"><span>Watch Channel</span><span class="platform-cta-arrow">→</span></div>
+          </a>
+
+          <!-- TikTok -->
+          <a class="platform-card card-tiktok reveal delay-3" href="https://www.tiktok.com/@missqassie" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Follow Miss Qassie on TikTok" style="transition-delay:.34s">
+            <div class="shimmer" aria-hidden="true"></div>
+            <div class="platform-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.79 1.53V6.77a4.85 4.85 0 01-1.02-.08z"/></svg>
+            </div>
+            <span class="platform-name">TikTok</span>
+            <span class="platform-handle">Miss Qassie</span>
+            <p class="platform-desc">Daily looks, styling tips, and fashion inspiration reels.</p>
+            <div class="platform-cta"><span>Follow Now</span><span class="platform-cta-arrow">→</span></div>
+          </a>
+
+        </div><!-- /platform-grid -->
+
+        <!-- Contact Form + Info -->
+        <div class="contact-body">
+
+          <!-- Left: Info -->
+          <div class="contact-info-col reveal delay-1" style="transition-delay:.1s">
+            <span class="contact-info-label">Direct Enquiries</span>
+            <h3 class="contact-info-heading">Book a<br><em>Styling Session</em></h3>
+            <p class="contact-info-body">
+              Ready for a full wardrobe transformation, a special occasion look, or personal shopping?
+              Fill in the form and Miss Qassie will be in touch within 24 hours.
+            </p>
+            <div class="contact-detail-list" role="list">
+              <div class="contact-detail" role="listitem">
+                <div class="detail-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="none" stroke="currentColor" stroke-width="0"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                </div>
+                <span class="detail-text">Kampala, Uganda · Worldwide</span>
+              </div>
+              <div class="contact-detail" role="listitem">
+                <div class="detail-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                </div>
+                <span class="detail-text">
+                  <a href="https://wa.me/256756390806" target="_blank" rel="noopener">+256 756 390 806</a>
+                </span>
+              </div>
+              <div class="contact-detail" role="listitem">
+                <div class="detail-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <span class="detail-text">Mon – Sat · 9am – 7pm EAT</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Form -->
+          <div class="contact-form-col reveal delay-2" style="transition-delay:.24s">
+            <form class="mq-form" id="contactForm" novalidate aria-label="Contact Miss Quassie">
+              <div class="form-row">
+                <div class="form-field">
+                  <label class="form-label" for="fname">First Name</label>
+                  <input class="form-input" type="text" id="fname" name="fname" placeholder="Jane" autocomplete="given-name" required />
+                </div>
+                <div class="form-field">
+                  <label class="form-label" for="lname">Last Name</label>
+                  <input class="form-input" type="text" id="lname" name="lname" placeholder="Doe" autocomplete="family-name" required />
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="email">Email Address</label>
+                <input class="form-input" type="email" id="email" name="email" placeholder="you@email.com" autocomplete="email" required />
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="service">I'm Interested In</label>
+                <div class="select-wrap">
+                  <select class="form-select" id="service" name="service">
+                    <option value="" disabled selected>Select a service…</option>
+                    <option value="personal-styling">Personal Styling Session</option>
+                    <option value="wardrobe-edit">Wardrobe Edit &amp; Refresh</option>
+                    <option value="special-occasion">Special Occasion Styling</option>
+                    <option value="personal-shopping">Personal Shopping</option>
+                    <option value="collaboration">Brand Collaboration</option>
+                    <option value="other">Other Enquiry</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="message">Your Message</label>
+                <textarea class="form-textarea" id="message" name="message" placeholder="Tell Miss Qassie a little about yourself and what you're looking for…"></textarea>
+              </div>
+              <button type="submit" class="btn-submit" id="submitBtn" aria-label="Send enquiry">
+                Send Enquiry
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </button>
+            </form>
+          </div>
+
+        </div><!-- /contact-body -->
+      </div><!-- /contact-inner -->
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════
+                FOOTER
+════════════════════════════════════════ -->
+<footer class="mq-footer">
+
+  <div class="mq-footer-top">
+
+      <div class="mq-footer-brand">
+          <span class="mq-footer-small">Luxury Fashion House</span>
+
+          <a href="admin-login.html"
+   class="mq-footer-logo-link"
+   title="Administration">
+
+            <h2 class="mq-footer-logo">
+                MISS <span>QASSIE</span>
+            </h2>
+        
+        </a>
+
+          <p class="mq-footer-text">
+              Timeless elegance, editorial fashion,
+              and personal styling crafted for women
+              who desire confidence, sophistication,
+              and unforgettable presence.
+          </p>
+      </div>
+
+      <div class="mq-footer-links">
+
+          <div class="footer-column">
+
+              <h4>Navigation</h4>
+
+              <a href="#home">Home</a>
+              <a href="#collections">Collections</a>
+              <a href="#founder">Founder</a>
+              <a href="#editorial">Editorial</a>
+              <a href="#contact">Contact</a>
+
+          </div>
+
+          <div class="footer-column">
+
+              <h4>Services</h4>
+
+              <a href="#">Personal Styling</a>
+              <a href="#">Editorial Styling</a>
+              <a href="#">Wardrobe Refresh</a>
+              <a href="#">Fashion Consultation</a>
+
+          </div>
+
+          <div class="footer-column">
+
+              <h4>Connect</h4>
+
+              <a href="https://www.instagram.com/">Instagram</a>
+              <a href="https://www.tiktok.com/">TikTok</a>
+              <a href="https://www.youtube.com/">YouTube</a>
+              <a href="https://wa.me/256756390806">WhatsApp</a>
+
+          </div>
+
+      </div>
+
+  </div>
+
+  <div class="mq-footer-divider"></div>
+
+  <div class="mq-footer-bottom">
+
+      <p>
+          © 2026 MISS QASSIE.
+          All Rights Reserved.
+      </p>
+
+      <p>
+          Designed with elegance in Uganda.
+      </p>
+
+  </div>
+
+</footer>
+
+<!-- ════════════════════════════════════════
+            BACK TO TOP
+════════════════════════════════════════ -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"/>
+  </svg>
+
+</button>
+
+  <!-- ══════════════════════════════════════════
+       JAVASCRIPT
+  ══════════════════════════════════════════ -->
+  <script>
+    /* ── Sticky nav on scroll ── */
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    /* ── Hamburger menu ── */
+    const hamburger  = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay    = document.getElementById('navOverlay');
+
+    function toggleMenu(open) {
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', String(open));
+      mobileMenu.classList.toggle('open', open);
+      mobileMenu.setAttribute('aria-hidden', String(!open));
+      overlay.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    hamburger.addEventListener('click', () => toggleMenu(!hamburger.classList.contains('open')));
+    overlay.addEventListener('click', () => toggleMenu(false));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+
+    /* ==========================================
+   LUXURY REVEAL
+========================================== */
+
+const reveals = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("active");
+
+        }
+
+    });
+
+},{
+    threshold:.18
+});
+
+reveals.forEach(item=>{
+
+    revealObserver.observe(item);
+
+});
+
+    /* ── Contact form ── */
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      /* Basic validation */
+      const fname   = this.fname.value.trim();
+      const email   = this.email.value.trim();
+      const service = this.service.value;
+      if (!fname || !email || !service) {
+        const firstEmpty = !fname ? this.fname : !email ? this.email : this.service;
+        firstEmpty.focus();
+        firstEmpty.style.borderColor = 'var(--rose)';
+        setTimeout(() => firstEmpty.style.borderColor = '', 2000);
+        return;
+      }
+
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.classList.add('success');
+      btn.innerHTML = 'Message Sent ✓';
+
+      /* Reset after 3.5 s */
+      setTimeout(() => {
+        btn.classList.remove('success');
+        btn.disabled = false;
+        btn.innerHTML = 'Send Enquiry <svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;fill:none;stroke:var(--obsidian);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+        this.reset();
+      }, 3500);
+    });
+
+    /* Clear red border on input */
+    document.querySelectorAll('.form-input, .form-select, .form-textarea').forEach(el => {
+      el.addEventListener('input', () => el.style.borderColor = '');
+    });
+
+    document
+  .getElementById("contactForm")
+  .addEventListener("submit", async function(e) {
+  
+      e.preventDefault();
+  
+      const formData = {
+          firstName:
+              document.getElementById("fname").value,
+  
+          lastName:
+              document.getElementById("lname").value,
+  
+          email:
+              document.getElementById("email").value,
+  
+          service:
+              document.getElementById("service").value,
+  
+          message:
+              document.getElementById("message").value
+      };
+  
+      try {
+  
+          const response = await fetch(
+              "http://localhost:5000/contact",
+              {
+                  method: "POST",
+                  headers: {
+                      "Content-Type":
+                      "application/json"
+                  },
+                  body:
+                  JSON.stringify(formData)
+              }
+          );
+  
+          const data =
+          await response.json();
+  
+          alert(data.message);
+  
+          document
+          .getElementById("contactForm")
+          .reset();
+  
+      } catch(error) {
+  
+          console.error(error);
+  
+          alert(
+            "Failed to send enquiry."
+          );
+  
+      }
+
+      function animateCounter(id, end, suffix = "") {
+
+let current = 0;
+
+const element = document.getElementById(id);
+
+const increment = Math.ceil(end / 80);
+
+const timer = setInterval(() => {
+
+    current += increment;
+
+    if (current >= end) {
+
+        current = end;
+
+        clearInterval(timer);
+
+    }
+
+    element.textContent = current + suffix;
+
+}, 20);
+
+}
+
+window.addEventListener("load", () => {
+
+animateCounter("clientsCount", 500, "+");
+
+animateCounter("experienceCount", 8, "+");
+
+animateCounter("collectionsCount", 3);
+
+});
+  
+  });
+
+/* ==========================================
+   BACK TO TOP
+========================================== */
+
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 600){
+
+        backToTop.classList.add("show");
+
+    }else{
+
+        backToTop.classList.remove("show");
+
+    }
+
+});
+
+backToTop.addEventListener("click", () => {
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+});
+
+/* ==========================================
+   LUXURY PRELOADER
+========================================== */
+
+window.addEventListener("load",()=>{
+
+const loader=document.getElementById("mqLoader");
+
+setTimeout(()=>{
+
+    loader.classList.add("hide");
+
+},1200);
+
+});
+
+  </script>
+
+</body>
+
+</html>

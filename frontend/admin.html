@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>
+    Miss Qassie Admin Dashboard
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="admin.css"
+  >
+  
+</head>
+
+<script>
+  const token = localStorage.getItem("adminToken");
+  
+  if (!token) {
+      window.location.href = "admin-login.html";
+  }
+  
+  window.addEventListener("DOMContentLoaded", () => {
+  
+      const adminName = localStorage.getItem("adminName");
+  
+      if (adminName) {
+  
+          const header = document.querySelector(".header-left h1");
+  
+          if (header) {
+              header.textContent = `Welcome, ${adminName}`;
+          }
+  
+      }
+  
+  });
+  </script>
+
+<body>
+
+<div class="dashboard">
+
+  <div class="dashboard-header">
+
+    <div class="header-left">
+
+        <h1>
+            Miss Qassie
+        </h1>
+
+        <p>
+            Admin Dashboard • Client Relationship Management
+        </p>
+
+    </div>
+
+    <div class="header-actions">
+
+      <button id="exportPdfBtn">
+          📄 Export PDF
+      </button>
+  
+      <button id="exportExcelBtn">
+          📊 Export Excel
+      </button>
+
+      <button id="websiteBtn">
+        🌐 Back to Website
+    </button>
+
+      <button id="logoutBtn">
+          Logout
+      </button>
+  
+  </div>
+
+  <div id="notificationBox" class="notificationBox">
+    🔔 No new notifications
+ </div>
+
+</div>
+
+  <!-- DASHBOARD CARDS -->
+
+  <div class="dashboard-cards">
+
+    <div class="card total-card">
+      <h3>Total Enquiries</h3>
+      <h1 id="totalCount">0</h1>
+    </div>
+
+    <div class="card new-card">
+      <h3>New Enquiries</h3>
+      <h1 id="newCount">0</h1>
+    </div>
+
+    <div class="card contacted-card">
+      <h3>Contacted</h3>
+      <h1 id="contactedCount">0</h1>
+    </div>
+
+    <div class="card today-card">
+      <h3>Today's Enquiries</h3>
+      <h1 id="todayCount">0</h1>
+    </div>
+
+  </div>
+
+  <!-- SEARCH -->
+
+  <div class="search-section">
+
+    <div class="search-container">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder=" Search by name, email or service..."
+        >
+
+    </div>
+
+    <div class="filter-container">
+
+        <select id="serviceFilter">
+
+            <option value="all">All Services</option>
+            <option value="personal-styling">Personal Styling</option>
+            <option value="personal-shopping">Personal Shopping</option>
+            <option value="wardrobe-audit">Wardrobe Audit</option>
+            <option value="event-styling">Event Styling</option>
+
+        </select>
+
+        <select id="statusFilter">
+
+            <option value="all">All Status</option>
+            <option value="new">New</option>
+            <option value="contacted">Contacted</option>
+            <option value="replied">Replied</option>
+
+        </select>
+
+    </div>
+
+    <select id="sortFilter">
+
+      <option value="newest">
+          Newest First
+      </option>
+  
+      <option value="oldest">
+          Oldest First
+      </option>
+  
+  </select>
+
+</div>
+
+  <div class="analytics-card">
+
+    <h2>Enquiries Analytics</h2>
+
+    <canvas id="analyticsChart"></canvas>
+
+</div>
+
+<div id="loadingIndicator" class="loadingBox">
+
+  <div class="loader"></div>
+
+  <p>Loading enquiries...</p>
+
+</div>
+
+<div id="emptyState" class="emptyState">
+
+  <img
+      src="images/empty-box.png"
+      alt="No enquiries"
+      class="emptyImage"
+  >
+
+  <h2>No enquiries yet</h2>
+
+  <p>
+      New client enquiries will appear here.
+  </p>
+
+</div>
+
+  <!-- TABLE -->
+
+<div class="table-wrapper">
+
+  <table id="enquiriesTable">
+  
+      <thead>
+          <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Service</th>
+              <th>Date</th>
+              <th>Actions</th>
+              <th>Status</th>
+          </tr>
+      </thead>
+  
+      <tbody id="tableBody">
+  
+      </tbody>
+  
+  </table>
+  
+  </div>
+
+<!-- ======================================================
+     CHANGE PASSWORD MODAL
+====================================================== -->
+
+<div id="accountModal" class="modal-overlay">
+
+  <div class="account-modal-box">
+
+      <button
+          id="closeAccountModal"
+          class="close-x"
+      >
+          ×
+      </button>
+
+      <div class="modal-logo">
+
+          <img
+              src="images/logo.png"
+              alt="Miss Quassie Logo"
+              class="modal-logo-img"
+          >
+
+          <h2>Account Settings</h2>
+
+      </div>
+
+      <hr>
+
+      <h3>🔐 Change Password</h3>
+
+      <div class="account-form">
+
+          <label>Current Password</label>
+
+          <div class="password-wrapper">
+
+              <input
+                  type="password"
+                  id="currentPassword"
+                  placeholder="Enter current password"
+              >
+
+              <span
+                  class="toggle-eye"
+                  data-target="currentPassword"
+              >
+                  👁
+              </span>
+
+          </div>
+
+          <label>New Password</label>
+
+          <div class="password-wrapper">
+
+              <input
+                  type="password"
+                  id="newPassword"
+                  placeholder="Enter new password"
+              >
+
+              <span
+                  class="toggle-eye"
+                  data-target="newPassword"
+              >
+                  👁
+              </span>
+
+          </div>
+
+          <label>Confirm Password</label>
+
+          <div class="password-wrapper">
+
+              <input
+                  type="password"
+                  id="confirmPassword"
+                  placeholder="Confirm new password"
+              >
+
+              <span
+                  class="toggle-eye"
+                  data-target="confirmPassword"
+              >
+                  👁
+              </span>
+
+          </div>
+
+          <button
+              id="changePasswordBtn"
+              class="save-password-btn"
+          >
+              Save Password
+          </button>
+
+          <div
+              id="passwordMessage"
+              class="password-message"
+          ></div>
+
+      </div>
+
+  </div>
+
+</div>
+
+<!-- DELETE MODAL -->
+
+<div
+  id="modalOverlay"
+  class="modal-overlay"
+>
+
+  <div class="modal-box">
+
+    <h2 id="modalTitle">
+      Delete Enquiry
+    </h2>
+
+    <p id="modalMessage">
+      Are you sure you want to delete this enquiry?
+  </p>
+  
+  <h3 id="deleteClientName"></h3>
+
+    <div class="modal-buttons">
+
+      <button
+        id="cancelModal"
+        class="cancel-btn"
+      >
+        Cancel
+      </button>
+
+      <button
+        id="confirmModal"
+        class="confirm-btn"
+      >
+        Delete
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- VIEW MODAL -->
+
+<div
+  id="viewModal"
+  class="modal-overlay"
+>
+
+  <div class="view-modal-box">
+
+    <button
+      id="closeX"
+      class="close-x"
+    >
+      ×
+    </button>
+
+    <div class="modal-logo">
+
+      <img
+        src="images/logo.png"
+        alt="Miss Quassie Logo"
+        class="modal-logo-img"
+      >
+
+      <h2>
+        Miss Qassie Styling
+      </h2>
+
+    </div>
+
+    <hr>
+
+    <h3>
+      Enquiry Details
+    </h3>
+
+    <div class="detail-row">
+      <strong>Name</strong>
+      <span id="detailName"></span>
+    </div>
+
+    <div class="detail-row">
+      <strong>Email</strong>
+      <span id="detailEmail"></span>
+    </div>
+
+    <div class="detail-row">
+      <strong>Service</strong>
+      <span
+        id="detailService"
+        class="service-badge"
+      ></span>
+    </div>
+
+    <div class="detail-message">
+
+      <strong>
+        Message
+      </strong>
+
+      <p id="detailMessage"></p>
+
+    </div>
+
+    <div class="detail-row">
+      <strong>Date</strong>
+      <span id="detailDate"></span>
+    </div>
+
+    <hr>
+
+<h3>Reply Information</h3>
+
+<div class="detail-row">
+    <strong>Status</strong>
+    <span id="detailReplyStatus"></span>
+</div>
+
+<div class="detail-row">
+    <strong>Subject</strong>
+    <span id="detailReplySubject"></span>
+</div>
+
+<div class="detail-row">
+    <strong>Reply Message</strong>
+</div>
+
+<p id="detailReplyMessage"></p>
+
+<div class="detail-row">
+    <strong>Reply Date</strong>
+    <span id="detailReplyDate"></span>
+</div>
+
+    <button
+      id="closeViewModal"
+      class="close-modal-btn"
+    >
+      Close
+    </button>
+
+  </div>
+
+</div>
+
+<!-- REPLY MODAL -->
+
+<div
+  id="replyModal"
+  class="replyModal"
+>
+
+  <div class="replyBox">
+
+    <h2>
+      📧 Reply to Client
+    </h2>
+
+    <p>
+      <strong>To:</strong>
+      <span id="replyEmail"></span>
+    </p>
+
+    <input
+      type="text"
+      id="replySubject"
+      placeholder="Subject"
+    >
+
+    <textarea
+      id="replyMessage"
+      placeholder="Write your message..."
+    ></textarea>
+
+    <div class="replyButtons">
+
+      <button
+        id="sendReplyBtn"
+      >
+        Send Email
+      </button>
+
+      <button
+        id="closeReplyBtn"
+      >
+        Cancel
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<!-- jsPDF AutoTable -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+
+<!-- SheetJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+<!-- Dashboard -->
+<script src="admin-dashboard.js"></script>
+
+<div id="toastContainer"></div>
+
+<footer class="dashboard-footer">
+
+  <p>
+      © 2026 Miss Qassie Styling
+  </p>
+
+  <span>
+      Admin Dashboard • Version 1.0
+  </span>
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miss Qassie Admin Login</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="admin-login.css">
+</head>
+
+<body>
+
+  <div class="login-page">
+
+    <div class="login-container">
+
+      <div class="admin-badge">
+
+        <span>✦</span>
+    
+        ADMINISTRATION
+    
+    </div>
+
+  <h1>Miss Qassie</h1>
+  <h2>Luxury Administration Portal</h2>
+
+  <form id="loginForm">
+
+    <div class="input-group">
+      <label>Email</label>
+      <input
+    type="email"
+    id="email"
+    name="email"
+    autocomplete="username"
+    required>
+    </div>
+
+    <div class="input-group">
+
+      <label>Password</label>
+  
+      <div class="password-wrapper">
+  
+        <input
+        type="password"
+        id="password"
+        name="password"
+        autocomplete="new-password"
+        required>
+          
+  
+          <span id="togglePassword" class="toggle-password">
+              👁
+          </span>
+  
+      </div>
+  
+  </div>
+
+  <div id="loginError" class="login-error"></div>
+
+  <div
+      id="forgotPasswordContainer"
+      style="display:none; text-align:center; margin-top:15px;"
+  >
+  
+      <a
+          href="#"
+          id="forgotPasswordLink"
+          class="forgot-link"
+      >
+          Forgot your password?
+      </a>
+  
+  </div>
+
+    <div class="remember-me">
+
+      <input
+          type="checkbox"
+          id="rememberMe"
+      >
+  
+      <label for="rememberMe">
+          Remember Me
+      </label>
+  
+  </div>
+
+<button type="submit" id="loginBtn">
+    Login
+</button>
+
+  </form>
+
+</div>
+
+<footer class="login-footer">
+
+  © 2026 Miss Qassie Styling
+
+  <br>
+
+  Luxury Fashion Administration
+
+</footer>
+</div>
+<script src="admin-login.js"></script>
+
+</body>
+</html>
