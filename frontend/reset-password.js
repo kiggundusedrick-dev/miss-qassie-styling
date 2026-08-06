@@ -190,7 +190,7 @@ form.addEventListener("submit", async (e)=>{
 
         const response = await fetch(
 
-            "http://localhost:5000/admin/reset-password",
+            "https://miss-qassie-backend.onrender.com/admin/reset-password",
 
             {
 

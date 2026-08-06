@@ -350,7 +350,7 @@ async function loadEnquiries() {
   try {
 
     const response = await fetch(
-      "http://localhost:5000/enquiries",
+      "https://miss-qassie-backend.onrender.com/enquiries",
       {
           headers: {
               Authorization: `Bearer ${token}`
@@ -915,7 +915,7 @@ function attachRowEvents(row, enquiry) {
           try {
 
             await fetch(
-              `http://localhost:5000/enquiries/${enquiry.id}`,
+              `https://miss-qassie-backend.onrender.com/enquiries/${enquiry.id}`,
               {
                   method: "DELETE",
                   headers: {
@@ -962,7 +962,7 @@ if (contactButton) {
     try {
 
        await fetch(
-        `http://localhost:5000/enquiries/${enquiry.id}/contacted`,
+        `https://miss-qassie-backend.onrender.com/enquiries/${enquiry.id}/contacted`,
         {
           method: "PUT",
           headers:{
@@ -1020,7 +1020,7 @@ Thank you for contacting Miss Qassie Styling.
           try {
             
             const response = await fetch(
-              "http://localhost:5000/reply",
+              "https://miss-qassie-backend.onrender.com/reply",
               {
                   method: "POST",
                   headers: {
@@ -1047,7 +1047,7 @@ Thank you for contacting Miss Qassie Styling.
               // Update database
               const replyUpdate =
               await fetch(
-                `http://localhost:5000/enquiries/${enquiry.id}/replied`,
+                `https://miss-qassie-backend.onrender.com/enquiries/${enquiry.id}/replied`,
                 {
                   method: "PUT"
                 }
@@ -1596,7 +1596,7 @@ async function checkForNewEnquiries() {
   try {
     
       const response = await fetch(
-        "http://localhost:5000/enquiries",
+        "https://miss-qassie-backend.onrender.com/enquiries",
         {
             headers:{
                 Authorization:`Bearer ${token}`

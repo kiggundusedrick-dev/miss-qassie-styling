@@ -62,7 +62,7 @@ loginForm.addEventListener("submit", async function (e) {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/admin/login",
+            "https://miss-qassie-backend.onrender.com/admin/login",
             {
                 method: "POST",
                 headers: {
@@ -156,7 +156,7 @@ document
     try {
 
         const response = await fetch(
-            "http://localhost:5000/admin/forgot-password",
+            "https://miss-qassie-backend.onrender.com/admin/forgot-password",
             {
                 method: "POST",
                 headers: {
