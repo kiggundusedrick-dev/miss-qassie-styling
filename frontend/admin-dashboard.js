@@ -48,7 +48,7 @@ if (websiteBtn) {
 
     websiteBtn.addEventListener("click", () => {
 
-        window.location.href = "./miss-qassie.html";
+        window.location.href = "./index.html";
 
     });
 
