@@ -210,7 +210,7 @@ app.post(
 
         from: "Miss Qassie <onboarding@resend.dev>",
     
-        to: "missqassiestyling@gmail.com",
+        to: process.env.CLIENT_EMAIL,
     
         subject: "New Miss Quassie Enquiry",
     
