@@ -205,6 +205,7 @@ app.post(
       console.log("TO:", "missqassiestyling@gmail.com");
       console.log("================================");
       // Email notification
+      console.log("Starting sendMail...");
       const info = await transporter.sendMail({
 
         from: process.env.EMAIL_USER,
@@ -229,6 +230,9 @@ app.post(
             <p>${message}</p>
         `
     });
+
+    console.log("Finished sendMail");
+console.log(info);
 
     console.log("Email accepted:", info.accepted);
 console.log("Email rejected:", info.rejected);
