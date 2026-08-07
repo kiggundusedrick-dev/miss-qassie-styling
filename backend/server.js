@@ -14,7 +14,7 @@ console.log(
 );
 
 const pool = require("./db");
-const transporter = require("./email");
+const resend = require("./email");
 
 
 const adminRoutes = require("./routes/adminRoutes");
@@ -206,13 +206,13 @@ app.post(
       console.log("================================");
       // Email notification
       console.log("Starting sendMail...");
-      const info = await transporter.sendMail({
+      await resend.emails.send({
 
-        from: process.env.EMAIL_USER,
+        from: "Miss Qassie <onboarding@resend.dev>",
     
-        to: "missqassie@gmail.com",
+        to: "missqassiestyling@gmail.com",
     
-        subject: "New Miss Qassie Enquiry",
+        subject: "New Miss Quassie Enquiry",
     
         html: `
             <h2>New Enquiry Received</h2>
@@ -229,14 +229,11 @@ app.post(
     
             <p>${message}</p>
         `
+    
     });
 
     console.log("Finished sendMail");
 console.log(info);
-
-    console.log("Email accepted:", info.accepted);
-console.log("Email rejected:", info.rejected);
-console.log("Envelope:", info.envelope);
 
       res.json({
         success: true,
@@ -293,21 +290,17 @@ app.post(
       });
 
 
-      await transporter.sendMail({
+      await resend.emails.send({
 
-        from:
-          process.env.EMAIL_USER,
-
-        to:
-          email,
-
-        subject:
-          subject,
-
-        text:
-          message
-
-      });
+        from: "Miss Quassie <onboarding@resend.dev>",
+    
+        to: email,
+    
+        subject: subject,
+    
+        text: message
+    
+    });
 
       console.log("Updating enquiry:", enquiryId);
 
