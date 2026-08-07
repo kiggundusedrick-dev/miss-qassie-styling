@@ -233,7 +233,7 @@ app.post(
     });
 
     console.log("Finished sendMail");
-console.log(info);
+
 
       res.json({
         success: true,
