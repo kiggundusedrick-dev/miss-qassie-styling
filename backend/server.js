@@ -294,7 +294,7 @@ app.post(
 
     from: "Miss Quassie <onboarding@resend.dev>",
 
-    to: email,
+    to: process.env.CLIENT_EMAIL,
 
     subject: subject,
 
