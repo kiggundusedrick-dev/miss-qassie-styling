@@ -290,17 +290,26 @@ app.post(
       });
 
 
-      await resend.emails.send({
+      const { data, error } = await resend.emails.send({
 
-        from: "Miss Quassie <onboarding@resend.dev>",
-    
-        to: email,
-    
-        subject: subject,
-    
-        text: message
-    
-    });
+    from: "Miss Quassie <onboarding@resend.dev>",
+
+    to: email,
+
+    subject: subject,
+
+    html: `
+        <p>${message.replace(/\n/g, "<br>")}</p>
+    `
+
+});
+
+console.log("RESEND DATA:", data);
+console.log("RESEND ERROR:", error);
+
+if (error) {
+    throw new Error(JSON.stringify(error));
+}
 
       console.log("Updating enquiry:", enquiryId);
 
