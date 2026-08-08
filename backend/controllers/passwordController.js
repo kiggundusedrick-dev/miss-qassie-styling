@@ -2,7 +2,7 @@ console.log("PASSWORD CONTROLLER FILE LOADED");
 console.log("PASSWORD CONTROLLER LOADED");
 const crypto = require("crypto");
 const pool = require("../db");
-const transporter = require("../email");
+const sendBrevoEmail = require("../email");
 const bcrypt = require("bcrypt");
 
 // =====================================
@@ -88,53 +88,42 @@ const resetLink =
 console.log("RESET LINK:");
 console.log(resetLink);
 
+await sendBrevoEmail({
 
+    to: email,
 
-        await transporter.sendMail({
+    subject: "Miss Qassie Password Reset",
 
-            from: process.env.EMAIL_USER,
+    html: `
 
-            to: email,
+        <h2>Password Reset Request</h2>
 
-            subject: "Miss Qassie Password Reset",
+        <p>Hello ${admin.full_name},</p>
 
-            html: `
+        <p>
+        Click the button below to reset your password.
+        </p>
 
-                <h2>Password Reset Request</h2>
+        <a
+            href="${resetLink}"
+            style="
+                background:#C9A96E;
+                color:white;
+                padding:12px 25px;
+                text-decoration:none;
+                border-radius:6px;
+                display:inline-block;
+            "
+        >
+            Reset Password
+        </a>
 
-                <p>Hello ${admin.full_name},</p>
+        <p>
+        This link expires in 15 minutes.
+        </p>
 
-                <p>
-
-                Click the button below to reset your password.
-
-                </p>
-
-                <a
-                    href="${resetLink}"
-                    style="
-                        background:#C9A96E;
-                        color:white;
-                        padding:12px 25px;
-                        text-decoration:none;
-                        border-radius:6px;
-                        display:inline-block;
-                    "
-                >
-
-                    Reset Password
-
-                </a>
-
-                <p>
-
-                This link expires in 15 minutes.
-
-                </p>
-
-            `
-
-        });
+    `
+});
 
         res.json({
 

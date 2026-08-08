@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const brevo = require("@getbrevo/brevo");
 
 
 console.log("I AM RUNNING THE CORRECT SERVER");
@@ -14,8 +15,6 @@ console.log(
 );
 
 const pool = require("./db");
-const resend = require("./email");
-
 
 const adminRoutes = require("./routes/adminRoutes");
 
@@ -23,6 +22,8 @@ const passwordRoutes = require("./routes/passwordRoutes");
 
 const app = express();
 const PORT = 5000;
+
+const sendBrevoEmail = require("./email");
 
 // =====================================================
 // ACTIVITY LOG FUNCTION
@@ -201,36 +202,32 @@ app.post(
       );
 
       console.log("================================");
-      console.log("FROM:", process.env.EMAIL_USER);
-      console.log("TO:", "missqassiestyling@gmail.com");
-      console.log("================================");
+console.log("FROM:", "Miss Qassie <missqassiestyling@gmail.com>");
+console.log("TO:", process.env.CLIENT_EMAIL);
+console.log("================================");
       // Email notification
       console.log("Starting sendMail...");
-      await resend.emails.send({
-
-        from: "Miss Qassie <onboarding@resend.dev>",
-    
+      await sendBrevoEmail({
         to: process.env.CLIENT_EMAIL,
-    
-        subject: "New Miss Quassie Enquiry",
-    
+      
+        subject: "New Miss Qassie Enquiry",
+      
         html: `
-            <h2>New Enquiry Received</h2>
-    
-            <p><strong>First Name:</strong> ${firstName}</p>
-    
-            <p><strong>Last Name:</strong> ${lastName}</p>
-    
-            <p><strong>Email:</strong> ${email}</p>
-    
-            <p><strong>Service:</strong> ${service}</p>
-    
-            <p><strong>Message:</strong></p>
-    
-            <p>${message}</p>
+          <h2>New Enquiry Received</h2>
+      
+          <p><strong>First Name:</strong> ${firstName}</p>
+      
+          <p><strong>Last Name:</strong> ${lastName}</p>
+      
+          <p><strong>Email:</strong> ${email}</p>
+      
+          <p><strong>Service:</strong> ${service}</p>
+      
+          <p><strong>Message:</strong></p>
+      
+          <p>${message}</p>
         `
-    
-    });
+      });
 
     console.log("Finished sendMail");
 
@@ -290,22 +287,17 @@ app.post(
       });
 
 
-      const { data, error } = await resend.emails.send({
+      await sendBrevoEmail({
 
-    from: "Miss Quassie <onboarding@resend.dev>",
-
-    to: process.env.CLIENT_EMAIL,
-
-    subject: subject,
-
-    html: `
-        <p>${message.replace(/\n/g, "<br>")}</p>
-    `
-
-});
-
-console.log("RESEND DATA:", data);
-console.log("RESEND ERROR:", error);
+        to: email,
+    
+        subject: subject,
+    
+        html: `
+            <p>${message.replace(/\n/g, "<br>")}</p>
+        `
+    
+    });
 
 if (error) {
     throw new Error(JSON.stringify(error));

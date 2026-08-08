@@ -72,7 +72,7 @@
             <span class="logo-large">
                 QASSIE
             </span>
-    
+
         </div>
     
     </a>
@@ -92,12 +92,19 @@
   
   </ul>
 
+  <button class="menu-toggle">
+
+    ☰
+
+</button>
+
       <a href="#contact" class="nav-cta" aria-label="Book a styling session">Book Styling</a>
 
       <button class="nav-hamburger" id="hamburger" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation menu">
         <span></span><span></span><span></span>
       </button>
     </nav>
+
   </header>
 
   <!-- Mobile overlay + menu -->
@@ -1181,6 +1188,16 @@ setTimeout(()=>{
     loader.classList.add("hide");
 
 },1200);
+
+});
+
+const menuToggle = document.querySelector(".menu-toggle");
+
+const navLinks = document.querySelector(".nav-links");
+
+menuToggle.addEventListener("click", () => {
+
+    navLinks.classList.toggle("active");
 
 });
 

@@ -1,5 +1,38 @@
-const { Resend } = require("resend");
+const { BrevoClient } = require("@getbrevo/brevo");
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const brevo = new BrevoClient({
+  apiKey: process.env.BREVO_API_KEY
+});
 
-module.exports = resend;
+async function sendBrevoEmail({
+  to,
+  subject,
+  html
+}) {
+
+  const result =
+    await brevo.transactionalEmails.sendTransacEmail({
+
+      sender: {
+        name: "Miss Qassie",
+        email: "missqassiestyling@gmail.com"
+      },
+
+      to: [
+        {
+          email: to
+        }
+      ],
+
+      subject: subject,
+
+      htmlContent: html
+
+    });
+
+  console.log("BREVO EMAIL SENT:", result);
+
+  return result;
+}
+
+module.exports = sendBrevoEmail;
