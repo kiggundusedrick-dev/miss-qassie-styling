@@ -268,7 +268,7 @@ app.post(
   "/reply",
   async (req, res) => {
 
-    console.log("🔥 REPLY ROUTE HIT - VERSION 2");
+    console.log("🔥 REPLY ROUTE HIT - BREVO VERSION");
 
     try {
 
@@ -279,7 +279,7 @@ app.post(
         message
       } = req.body;
 
-      console.log({
+      console.log("REPLY DATA:", {
         enquiryId,
         email,
         subject,
@@ -287,66 +287,117 @@ app.post(
       });
 
 
+      // ====================================
+      // SEND EMAIL USING BREVO
+      // ====================================
+
       await sendBrevoEmail({
 
         to: email,
-    
+
         subject: subject,
-    
+
         html: `
-            <p>${message.replace(/\n/g, "<br>")}</p>
+          <p>${message.replace(/\n/g, "<br>")}</p>
         `
-    
-    });
 
-if (error) {
-    throw new Error(JSON.stringify(error));
-}
+      });
 
-      console.log("Updating enquiry:", enquiryId);
 
-await pool.query(
-  `
-  UPDATE enquiries
-  SET
-    reply_subject = $1,
-    reply_message = $2,
-    replied_at = NOW()
-  WHERE id = $3
-  `,
-  [
-    subject,
-    message,
-    enquiryId
-  ]
-);
+      console.log("✅ BREVO REPLY EMAIL SENT");
 
-await logActivity(
 
-  "Reply Sent",
+      // ====================================
+      // UPDATE ENQUIRY
+      // ====================================
 
-  email,
+      console.log(
+        "Updating enquiry:",
+        enquiryId
+      );
 
-  `Reply sent with subject "${subject}"`
+      await pool.query(
+        `
+        UPDATE enquiries
+        SET
+          reply_subject = $1,
+          reply_message = $2,
+          replied_at = NOW(),
+          replied = true
+        WHERE id = $3
+        `,
+        [
+          subject,
+          message,
+          enquiryId
+        ]
+      );
 
-);
 
-console.log("Reply history saved.");
+      // ====================================
+      // LOG ACTIVITY
+      // ====================================
 
-      res.json({
+      await logActivity(
+
+        "Reply Sent",
+
+        email,
+
+        `Reply sent with subject "${subject}"`
+
+      );
+
+
+      console.log(
+        "✅ Reply history saved."
+      );
+
+
+      // ====================================
+      // SUCCESS RESPONSE
+      // ====================================
+
+      return res.status(200).json({
+
         success: true,
+
         message:
           "Reply sent successfully."
+
       });
+
 
     } catch (error) {
 
+      console.error(
+        "========== REPLY ERROR =========="
+      );
+
       console.error(error);
 
-      res.status(500).json({
+      console.error(
+        "MESSAGE:",
+        error.message
+      );
+
+      console.error(
+        "STACK:",
+        error.stack
+      );
+
+      console.error(
+        "================================="
+      );
+
+
+      return res.status(500).json({
+
         success: false,
+
         message:
           "Failed to send email."
+
       });
 
     }

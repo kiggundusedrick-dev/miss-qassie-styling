@@ -1,38 +1,53 @@
 const { BrevoClient } = require("@getbrevo/brevo");
 
 const brevo = new BrevoClient({
-  apiKey: process.env.BREVO_API_KEY
+    apiKey: process.env.BREVO_API_KEY
 });
 
+
 async function sendBrevoEmail({
-  to,
-  subject,
-  html
+    to,
+    subject,
+    html,
+    text = ""
 }) {
 
-  const result =
-    await brevo.transactionalEmails.sendTransacEmail({
+    const result =
+        await brevo.transactionalEmails.sendTransacEmail({
 
-      sender: {
-        name: "Miss Qassie",
-        email: "missqassiestyling@gmail.com"
-      },
+            sender: {
+                name: "Miss Qassie",
+                email: process.env.EMAIL_USER
+            },
 
-      to: [
-        {
-          email: to
-        }
-      ],
+            to: [
+                {
+                    email: to
+                }
+            ],
 
-      subject: subject,
+            replyTo: {
+                name: "Miss Qassie",
+                email: process.env.EMAIL_USER
+            },
 
-      htmlContent: html
+            subject: subject,
 
-    });
+            htmlContent: html,
 
-  console.log("BREVO EMAIL SENT:", result);
+            textContent: text
 
-  return result;
+        });
+
+    console.log("================================");
+    console.log("BREVO EMAIL SENT SUCCESSFULLY");
+    console.log("MESSAGE ID:", result.messageId);
+    console.log("TO:", to);
+    console.log("REPLY-TO:", process.env.EMAIL_USER);
+    console.log("================================");
+
+    return result;
 }
+
 
 module.exports = sendBrevoEmail;
