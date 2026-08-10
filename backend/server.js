@@ -208,26 +208,50 @@ console.log("================================");
       // Email notification
       console.log("Starting sendMail...");
       await sendBrevoEmail({
+
         to: process.env.CLIENT_EMAIL,
-      
-        subject: "New Miss Qassie Enquiry",
-      
+    
+        subject: `New Styling Enquiry from ${first_name} ${last_name}`,
+    
         html: `
-          <h2>New Enquiry Received</h2>
-      
-          <p><strong>First Name:</strong> ${firstName}</p>
-      
-          <p><strong>Last Name:</strong> ${lastName}</p>
-      
-          <p><strong>Email:</strong> ${email}</p>
-      
-          <p><strong>Service:</strong> ${service}</p>
-      
-          <p><strong>Message:</strong></p>
-      
-          <p>${message}</p>
+            <div style="
+                font-family: Arial, sans-serif;
+                max-width: 600px;
+                margin: auto;
+                padding: 30px;
+            ">
+    
+                <h2 style="color:#C9A96E;">
+                    New Styling Enquiry
+                </h2>
+    
+                <p>
+                    <strong>Name:</strong>
+                    ${first_name} ${last_name}
+                </p>
+    
+                <p>
+                    <strong>Email:</strong>
+                    ${email}
+                </p>
+    
+                <p>
+                    <strong>Service:</strong>
+                    ${service}
+                </p>
+    
+                <p>
+                    <strong>Message:</strong>
+                </p>
+    
+                <p>
+                    ${message.replace(/\n/g, "<br>")}
+                </p>
+    
+            </div>
         `
-      });
+    
+    });
 
     console.log("Finished sendMail");
 
@@ -258,17 +282,11 @@ console.log("================================");
   
 );
 
-/*
-====================================
-SEND REPLY EMAIL
-====================================
-*/
-
 app.post(
   "/reply",
   async (req, res) => {
 
-    console.log("🔥 REPLY ROUTE HIT - BREVO VERSION");
+    console.log("🔥 REPLY ROUTE HIT - BREVO");
 
     try {
 
@@ -279,42 +297,69 @@ app.post(
         message
       } = req.body;
 
-      console.log("REPLY DATA:", {
+      console.log({
         enquiryId,
         email,
         subject,
         message
       });
 
-
-      // ====================================
-      // SEND EMAIL USING BREVO
-      // ====================================
+      // =====================================
+      // SEND EMAIL THROUGH BREVO
+      // =====================================
 
       await sendBrevoEmail({
 
         to: email,
-
+    
         subject: subject,
-
+    
         html: `
-          <p>${message.replace(/\n/g, "<br>")}</p>
+            <div style="
+                font-family: Arial, sans-serif;
+                max-width: 600px;
+                margin: auto;
+                padding: 30px;
+                color: #222;
+            ">
+    
+                <h2 style="
+                    color: #C9A96E;
+                    margin-bottom: 20px;
+                ">
+                    Miss Qassie Styling
+                </h2>
+    
+                <p>
+                    ${message.replace(/\n/g, "<br>")}
+                </p>
+    
+                <hr style="
+                    border: none;
+                    border-top: 1px solid #ddd;
+                    margin: 30px 0;
+                ">
+    
+                <p style="
+                    font-size: 12px;
+                    color: #777;
+                ">
+                    Miss Qassie Styling<br>
+                    Style. Confidence. You.
+                </p>
+    
+            </div>
         `
+    
+    });
 
-      });
+      console.log("✅ BREVO REPLY SENT");
 
-
-      console.log("✅ BREVO REPLY EMAIL SENT");
-
-
-      // ====================================
+      // =====================================
       // UPDATE ENQUIRY
-      // ====================================
+      // =====================================
 
-      console.log(
-        "Updating enquiry:",
-        enquiryId
-      );
+      console.log("Updating enquiry:", enquiryId);
 
       await pool.query(
         `
@@ -333,71 +378,38 @@ app.post(
         ]
       );
 
-
-      // ====================================
+      // =====================================
       // LOG ACTIVITY
-      // ====================================
+      // =====================================
 
       await logActivity(
-
         "Reply Sent",
-
         email,
-
         `Reply sent with subject "${subject}"`
-
       );
 
+      console.log("Reply history saved.");
 
-      console.log(
-        "✅ Reply history saved."
-      );
-
-
-      // ====================================
+      // =====================================
       // SUCCESS RESPONSE
-      // ====================================
+      // =====================================
 
-      return res.status(200).json({
-
+      res.json({
         success: true,
-
-        message:
-          "Reply sent successfully."
-
+        message: "Reply sent successfully."
       });
-
 
     } catch (error) {
 
-      console.error(
-        "========== REPLY ERROR =========="
-      );
-
+      console.error("========== REPLY ERROR ==========");
       console.error(error);
+      console.error("MESSAGE:", error.message);
+      console.error("STACK:", error.stack);
+      console.error("=================================");
 
-      console.error(
-        "MESSAGE:",
-        error.message
-      );
-
-      console.error(
-        "STACK:",
-        error.stack
-      );
-
-      console.error(
-        "================================="
-      );
-
-
-      return res.status(500).json({
-
+      res.status(500).json({
         success: false,
-
-        message:
-          "Failed to send email."
-
+        message: "Failed to send email."
       });
 
     }

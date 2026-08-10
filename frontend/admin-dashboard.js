@@ -214,7 +214,7 @@ document.getElementById(
   "tableBody"
 );
 
-console.log("tableBody =", tableBody);
+
 
 const exportPdfBtn = document.getElementById("exportPdfBtn");
 const exportExcelBtn = document.getElementById("exportExcelBtn");
@@ -349,10 +349,17 @@ async function loadEnquiries() {
 
   try {
 
+    console.log("========== AUTH DEBUG ==========");
+console.log("TOKEN EXISTS:", !!token);
+console.log("TOKEN LENGTH:", token ? token.length : 0);
+console.log("TOKEN:", token);
+console.log("================================");
+
     const response = await fetch(
       "https://miss-qassie-backend.onrender.com/enquiries",
       {
           headers: {
+            "Content-Type": "application/json",
               Authorization: `Bearer ${token}`
           }
       }

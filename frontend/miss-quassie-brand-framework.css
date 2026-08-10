@@ -5614,4 +5614,63 @@ MOBILE HERO
 
 }
 
+/* =====================================================
+   CONTACT SECTION — FINAL SPACING FIX
+===================================================== */
 
+#contact {
+  position: relative;
+  padding-top: 120px;
+  scroll-margin-top: 100px;
+}
+
+/* Contact heading */
+.contact-headline {
+  margin-top: 0;
+  margin-bottom: 28px;
+  line-height: 1.08;
+}
+
+/* Gold italic line */
+.contact-headline em {
+  display: inline-block;
+  margin-top: 8px;
+}
+
+/* Contact description */
+.contact-sub {
+  margin-top: 0;
+  line-height: 1.8;
+}
+
+/* Divider */
+.contact-divider {
+  margin-top: 38px;
+}
+
+/* =====================================================
+ MOBILE
+===================================================== */
+
+@media (max-width: 767px) {
+
+  #contact {
+      padding-top: 90px;
+      scroll-margin-top: 80px;
+  }
+
+  .contact-headline {
+      font-size: clamp(42px, 11vw, 64px);
+      line-height: 1.05;
+  }
+
+  .contact-headline em {
+      margin-top: 6px;
+  }
+
+  .contact-sub {
+      padding: 0 12px;
+      line-height: 1.7;
+  }
+
+}
