@@ -18,28 +18,35 @@
 </head>
 
 <script>
+  // =========================================
+  // ADMIN PAGE PROTECTION
+  // =========================================
+
   const token = localStorage.getItem("adminToken");
-  
+
   if (!token) {
-      window.location.href = "admin-login.html";
+      window.location.replace("admin-login.html");
   }
-  
+
   window.addEventListener("DOMContentLoaded", () => {
-  
-      const adminName = localStorage.getItem("adminName");
-  
+
+      const adminName =
+          localStorage.getItem("adminName");
+
       if (adminName) {
-  
-          const header = document.querySelector(".header-left h1");
-  
+
+          const header =
+              document.querySelector(".header-left h1");
+
           if (header) {
-              header.textContent = `Welcome, ${adminName}`;
+              header.textContent =
+                  `Welcome, ${adminName}`;
           }
-  
+
       }
-  
+
   });
-  </script>
+</script>
 
 <body>
 
@@ -178,7 +185,7 @@
 
 </div>
 
-<div class="empty-state">
+<div class="empty-state" id="emptyState">
   <div class="empty-state-icon">✉</div>
   <h3>No enquiries yet</h3>
   <p>Customer enquiries will appear here when they are submitted.</p>

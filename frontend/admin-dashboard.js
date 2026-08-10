@@ -261,32 +261,23 @@ notificationSound.volume = 0.5;
 
 function showLoading() {
 
-  const loader = document.getElementById("loadingIndicator");
+  const loader =
+      document.getElementById("loadingIndicator");
 
   if (loader) {
-      loader.style.display = "block";
-  }
-
-  const table = document.getElementById("enquiriesTable");
-
-  if (table) {
-      table.style.display = "none";
+      loader.style.display = "flex";
   }
 
 }
 
+
 function hideLoading() {
 
-  const loader = document.getElementById("loadingIndicator");
+  const loader =
+      document.getElementById("loadingIndicator");
 
   if (loader) {
       loader.style.display = "none";
-  }
-
-  const table = document.getElementById("enquiriesTable");
-
-  if (table) {
-      table.style.display = "table";
   }
 
 }
@@ -295,48 +286,39 @@ function hideLoading() {
 // EMPTY STATE
 // =======================================
 
-function showEmptyState(){
+function showEmptyState() {
 
   const empty =
-  document.getElementById("emptyState");
+      document.getElementById("emptyState");
 
   const table =
-  document.getElementById("enquiriesTable");
+      document.getElementById("enquiriesTable");
 
-  if(empty){
-
-      empty.style.display="block";
-
+  if (empty) {
+      empty.style.display = "block";
   }
 
-  if(table){
-
-      table.style.display="none";
-
+  if (table) {
+      table.style.display = "none";
   }
-
 }
 
-function hideEmptyState(){
+
+function hideEmptyState() {
 
   const empty =
-  document.getElementById("emptyState");
+      document.getElementById("emptyState");
 
   const table =
-  document.getElementById("enquiriesTable");
+      document.getElementById("enquiriesTable");
 
-  if(empty){
-
-      empty.style.display="none";
-
+  if (empty) {
+      empty.style.display = "none";
   }
 
-  if(table){
-
-      table.style.display="table";
-
+  if (table) {
+      table.style.display = "table";
   }
-
 }
 
 // =====================================================
@@ -409,6 +391,12 @@ console.log("================================");
     );
 
   }
+
+  finally {
+
+    hideLoading();
+
+}
 
 }
 
