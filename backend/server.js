@@ -206,54 +206,55 @@ console.log("FROM:", "Miss Qassie <missqassiestyling@gmail.com>");
 console.log("TO:", process.env.CLIENT_EMAIL);
 console.log("================================");
       // Email notification
-      console.log("Starting sendMail...");
-      await sendBrevoEmail({
+console.log("Starting sendMail...");
 
-        to: process.env.CLIENT_EMAIL,
-    
-        subject: `New Styling Enquiry from ${first_name} ${last_name}`,
-    
-        html: `
-            <div style="
-                font-family: Arial, sans-serif;
-                max-width: 600px;
-                margin: auto;
-                padding: 30px;
-            ">
-    
-                <h2 style="color:#C9A96E;">
-                    New Styling Enquiry
-                </h2>
-    
-                <p>
-                    <strong>Name:</strong>
-                    ${first_name} ${last_name}
-                </p>
-    
-                <p>
-                    <strong>Email:</strong>
-                    ${email}
-                </p>
-    
-                <p>
-                    <strong>Service:</strong>
-                    ${service}
-                </p>
-    
-                <p>
-                    <strong>Message:</strong>
-                </p>
-    
-                <p>
-                    ${message.replace(/\n/g, "<br>")}
-                </p>
-    
-            </div>
-        `
-    
-    });
+await sendBrevoEmail({
 
-    console.log("Finished sendMail");
+    to: process.env.CLIENT_EMAIL,
+
+    subject: `New Styling Enquiry from ${firstName} ${lastName}`,
+
+    html: `
+        <div style="
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: auto;
+            padding: 30px;
+        ">
+
+            <h2 style="color:#C9A96E;">
+                New Styling Enquiry
+            </h2>
+
+            <p>
+                <strong>Name:</strong>
+                ${firstName} ${lastName}
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                ${email}
+            </p>
+
+            <p>
+                <strong>Service:</strong>
+                ${service}
+            </p>
+
+            <p>
+                <strong>Message:</strong>
+            </p>
+
+            <p>
+                ${message.replace(/\n/g, "<br>")}
+            </p>
+
+        </div>
+    `
+
+});
+
+console.log("Finished sendMail");
 
 
       res.json({
